@@ -1,6 +1,7 @@
-package com.alexa.mypokemonbag.model.domain.service;
+package com.alexa.mypokemonbag.model.domain.impl;
 
 import com.alexa.mypokemonbag.model.Bag;
+import com.alexa.mypokemonbag.model.domain.service.BagService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,10 @@ import java.util.List;
 public class BagServiceImpl implements BagService {
     @Override
     public List<Bag> getListsBag() {
+        return listMock();
+    }
+
+    private List<Bag> listMock() {
         //mock
         Bag bag = new Bag(1l, "Pokemon Shield", "meus pokemons", null);
         Bag bag2 = new Bag(2l, "Pokemon Arceus", "meus pokemons shinny", null);

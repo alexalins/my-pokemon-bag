@@ -2,7 +2,7 @@ package com.alexa.mypokemonbag.presenter;
 
 import com.alexa.mypokemonbag.model.Bag;
 import com.alexa.mypokemonbag.model.domain.service.BagService;
-import com.alexa.mypokemonbag.model.domain.service.BagServiceImpl;
+import com.alexa.mypokemonbag.model.domain.impl.BagServiceImpl;
 import com.alexa.mypokemonbag.view.HomeContract;
 
 import java.util.List;

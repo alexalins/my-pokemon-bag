@@ -27,7 +27,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements HomeContract.View {
 
     private HomeContract.Presenter presenter;
-    private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private BagAdapter adapter;
 
