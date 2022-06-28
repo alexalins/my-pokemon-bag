@@ -1,9 +1,9 @@
-package com.alexa.mypokemonbag.presenter;
+package com.alexa.mypokemonbag.mvp.presenter;
 
 import com.alexa.mypokemonbag.model.Bag;
 import com.alexa.mypokemonbag.model.domain.service.BagService;
 import com.alexa.mypokemonbag.model.domain.impl.BagServiceImpl;
-import com.alexa.mypokemonbag.view.HomeContract;
+import com.alexa.mypokemonbag.mvp.contract.HomeContract;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public List<Bag> getListsBag() {
-        List<Bag> list = service.getListsBag();
+        List<Bag> list = service.getListBag();
         if(list.isEmpty()) {
             view.displayErrorMessage();
         }

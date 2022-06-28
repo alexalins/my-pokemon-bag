@@ -1,25 +1,18 @@
 package com.alexa.mypokemonbag.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.alexa.mypokemonbag.R;
 import com.alexa.mypokemonbag.adapter.BagAdapter;
 import com.alexa.mypokemonbag.databinding.ActivityMainBinding;
 import com.alexa.mypokemonbag.model.Bag;
-import com.alexa.mypokemonbag.presenter.HomePresenter;
+import com.alexa.mypokemonbag.mvp.presenter.HomePresenter;
 import com.alexa.mypokemonbag.util.Utils;
-import com.alexa.mypokemonbag.view.HomeContract;
-import com.google.android.material.snackbar.Snackbar;
+import com.alexa.mypokemonbag.mvp.contract.HomeContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
 
     @Override
     public void displayErrorMessage() {
-        Utils.toast(this, "Erro ao listar seus dados");
+        Utils.toast(this, "Erro ao listar seus dados.");
     }
 
     @Override

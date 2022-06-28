@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BagServiceImpl implements BagService {
     @Override
-    public List<Bag> getListsBag() {
+    public List<Bag> getListBag() {
         return listMock();
     }
 

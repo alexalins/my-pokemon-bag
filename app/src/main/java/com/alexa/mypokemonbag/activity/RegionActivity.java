@@ -2,20 +2,18 @@ package com.alexa.mypokemonbag.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 
 import com.alexa.mypokemonbag.R;
 import com.alexa.mypokemonbag.adapter.RegionAdapter;
-import com.alexa.mypokemonbag.databinding.ActivityMainBinding;
 import com.alexa.mypokemonbag.databinding.ActivityRegionBinding;
 import com.alexa.mypokemonbag.model.Region;
-import com.alexa.mypokemonbag.presenter.HomePresenter;
-import com.alexa.mypokemonbag.presenter.RegionPresenter;
+import com.alexa.mypokemonbag.mvp.presenter.RegionPresenter;
 import com.alexa.mypokemonbag.util.Utils;
-import com.alexa.mypokemonbag.view.HomeContract;
-import com.alexa.mypokemonbag.view.RegionContract;
+import com.alexa.mypokemonbag.mvp.contract.RegionContract;
 
 import java.util.List;
 
@@ -48,18 +46,19 @@ public class RegionActivity extends AppCompatActivity implements RegionContract.
         binding.gridRegion.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(list.get(position));
+                presenter.nextPage();
             }
         });
     }
 
     @Override
     public void displayErrorMessage() {
-        Utils.toast(this, "Erro ao listar as regiões");
+        Utils.toast(this, "Erro ao listar as regiões.");
     }
 
     @Override
     public void pageListPokemon() {
-
+        Intent intent = new Intent(this, PokemonActivity.class);
+        startActivity(intent);
     }
 }

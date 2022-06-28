@@ -5,5 +5,5 @@ import com.alexa.mypokemonbag.model.Region;
 import java.util.List;
 
 public interface RegionService {
-    List<Region> getListsRegion();
+    List<Region> getListRegion();
 }

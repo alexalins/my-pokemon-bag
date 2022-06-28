@@ -1,4 +1,4 @@
-package com.alexa.mypokemonbag.view;
+package com.alexa.mypokemonbag.mvp.contract;
 
 import com.alexa.mypokemonbag.model.Bag;
 import com.alexa.mypokemonbag.mvp.BaseContract;
