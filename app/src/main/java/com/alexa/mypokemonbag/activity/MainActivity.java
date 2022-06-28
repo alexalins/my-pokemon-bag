@@ -22,6 +22,7 @@ import com.alexa.mypokemonbag.view.HomeContract;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements HomeContract.View {
 
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
     public void bindViews() {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ArrayList<Bag> list = (ArrayList<Bag>) presenter.getListsBag();
+        List<Bag> list = (ArrayList<Bag>) presenter.getListsBag();
         adapter = new BagAdapter(this, list);
         binding.include.listview.setAdapter(adapter);
 

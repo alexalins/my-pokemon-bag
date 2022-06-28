@@ -11,33 +11,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.alexa.mypokemonbag.R;
-import com.alexa.mypokemonbag.activity.MainActivity;
 import com.alexa.mypokemonbag.model.Bag;
+import com.alexa.mypokemonbag.model.Region;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class BagAdapter extends ArrayAdapter<Bag> {
+public class RegionAdapter extends ArrayAdapter<Region> {
 
-    private List<Bag> bag;
+    private List<Region> list;
 
-    public BagAdapter(@NonNull Context context, List<Bag> objects) {
+
+    public RegionAdapter(@NonNull Context context, @NonNull List<Region> objects) {
         super(context, 0, objects);
-        this.bag = objects;
+        this.list = objects;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Bag bag = getItem(position);
+        Region region = getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_bag, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_region, parent, false);
         }
         //
-        TextView txtTitle = convertView.findViewById(R.id.item_title);
-        TextView txtDescription = convertView.findViewById(R.id.item_description);
-        txtTitle.setText(bag.getTitle());
-        txtDescription.setText(bag.getDescription());
+        TextView txtTitle = convertView.findViewById(R.id.region_name);
+        txtTitle.setText(region.getName());
         return convertView;
     }
 }
