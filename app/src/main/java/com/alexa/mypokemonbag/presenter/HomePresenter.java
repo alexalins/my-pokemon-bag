@@ -1,6 +1,8 @@
 package com.alexa.mypokemonbag.presenter;
 
 import com.alexa.mypokemonbag.model.Bag;
+import com.alexa.mypokemonbag.model.domain.service.BagService;
+import com.alexa.mypokemonbag.model.domain.service.BagServiceImpl;
 import com.alexa.mypokemonbag.view.HomeContract;
 
 import java.util.List;
@@ -8,9 +10,11 @@ import java.util.List;
 public class HomePresenter implements HomeContract.Presenter {
 
     private HomeContract.View view;
+    private BagService service;
 
     public HomePresenter(HomeContract.View view) {
         this.view = view;
+        this.service = new BagServiceImpl();
         view.setPresenter(this);
     }
 
@@ -21,6 +25,15 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public List<Bag> getListsBag() {
-        return null;
+        List<Bag> list = service.getListsBag();
+        if(list.isEmpty()) {
+            view.displayErrorMessage();
+        }
+        return list;
+    }
+
+    @Override
+    public void nextPage() {
+        view.pageRegion();
     }
 }

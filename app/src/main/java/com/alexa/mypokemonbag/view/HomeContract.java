@@ -9,11 +9,11 @@ public interface HomeContract {
 
     interface View extends BaseContract.BaseView<Presenter> {
         void displayErrorMessage();
-        void displaySucessToast();
-        void startHomeActivity();
+        void pageRegion();
     }
 
     interface Presenter extends BaseContract.BasePresenter {
         List<Bag> getListsBag();
+        void nextPage();
     }
 }
