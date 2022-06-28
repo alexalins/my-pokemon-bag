@@ -7,7 +7,7 @@ import com.alexa.mypokemonbag.mvp.contract.RegionContract;
 
 import java.util.List;
 
-public class RegionPresenter implements RegionContract.Presenter{
+public class RegionPresenter implements RegionContract.Presenter {
 
     private RegionContract.View view;
     private RegionService regionService;

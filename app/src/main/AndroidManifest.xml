@@ -10,11 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPokemonBag">
         <activity
-            android:name=".activity.PokemonActivity"
+            android:name=".activity.BagActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.DetailPokemonActivity"
+            android:exported="false"
+            android:label="@string/title_activity_detail_pokemon"
+            android:parentActivityName=".activity.PokemonActivity"
+            android:theme="@style/Theme.MyPokemonBag.NoActionBar" />
+        <activity
+            android:name=".activity.PokemonActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.RegionActivity" />
+        <activity
             android:name=".activity.RegionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".activity.MainActivity" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">
