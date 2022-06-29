@@ -26,13 +26,6 @@ public class ModalSavePokemonBagPresenter implements ModalSavePokemonBagContract
     @Override
     public List<Bag> getListBag() {
         List<Bag> list = service.getListBag();
-        list.addAll(list);
-        list.addAll(list);
-        list.addAll(list);
-        list.addAll(list);
-        list.addAll(list);
-        list.addAll(list);
-        list.addAll(list);
         if(list.isEmpty()) {
             view.displayErrorMessage();
         }
