@@ -4,8 +4,10 @@ import android.os.Bundle;
 
 import com.alexa.mypokemonbag.mvp.contract.DetailPokemonContract;
 import com.alexa.mypokemonbag.mvp.presenter.DetailPokemonPresenter;
+import com.alexa.mypokemonbag.util.ModalSavePokemonBag;
 import com.alexa.mypokemonbag.util.Utils;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -57,6 +59,7 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
 
     @Override
     public void pageBags() {
-
+        ModalSavePokemonBag modal = new ModalSavePokemonBag();
+        modal.show(getSupportFragmentManager(), "modalSavePokemonBag");
     }
 }

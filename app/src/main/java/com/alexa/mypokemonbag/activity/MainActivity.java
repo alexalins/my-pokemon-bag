@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
     public void bindViews() {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        List<Bag> list = presenter.getListsBag();
+        List<Bag> list = presenter.getListBag();
         adapter = new BagAdapter(this, list);
         binding.include.listview.setAdapter(adapter);
 

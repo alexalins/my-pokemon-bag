@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPokemonBag">
         <activity
-            android:name=".activity.BagActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.DetailPokemonActivity"
             android:exported="false"
             android:label="@string/title_activity_detail_pokemon"

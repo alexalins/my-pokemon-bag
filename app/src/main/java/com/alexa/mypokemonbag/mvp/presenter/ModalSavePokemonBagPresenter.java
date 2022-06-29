@@ -1,18 +1,18 @@
 package com.alexa.mypokemonbag.mvp.presenter;
 
 import com.alexa.mypokemonbag.model.Bag;
-import com.alexa.mypokemonbag.model.domain.service.BagService;
 import com.alexa.mypokemonbag.model.domain.impl.BagServiceImpl;
-import com.alexa.mypokemonbag.mvp.contract.HomeContract;
+import com.alexa.mypokemonbag.model.domain.service.BagService;
+import com.alexa.mypokemonbag.mvp.contract.ModalSavePokemonBagContract;
 
 import java.util.List;
 
-public class HomePresenter implements HomeContract.Presenter {
+public class ModalSavePokemonBagPresenter implements ModalSavePokemonBagContract.Presenter{
 
-    private HomeContract.View view;
+    private ModalSavePokemonBagContract.View view;
     private BagService service;
 
-    public HomePresenter(HomeContract.View view) {
+    public ModalSavePokemonBagPresenter(ModalSavePokemonBagContract.View view) {
         this.view = view;
         this.service = new BagServiceImpl();
         view.setPresenter(this);
@@ -26,6 +26,13 @@ public class HomePresenter implements HomeContract.Presenter {
     @Override
     public List<Bag> getListBag() {
         List<Bag> list = service.getListBag();
+        list.addAll(list);
+        list.addAll(list);
+        list.addAll(list);
+        list.addAll(list);
+        list.addAll(list);
+        list.addAll(list);
+        list.addAll(list);
         if(list.isEmpty()) {
             view.displayErrorMessage();
         }
@@ -33,7 +40,7 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
-    public void nextPage() {
-        view.pageRegion();
+    public void savePokemon() {
+        view.displaySaveMessage();
     }
 }

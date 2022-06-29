@@ -5,15 +5,14 @@ import com.alexa.mypokemonbag.mvp.BaseContract;
 
 import java.util.List;
 
-public interface HomeContract {
-
-    interface View extends BaseContract.BaseView<Presenter> {
+public interface ModalSavePokemonBagContract {
+    interface View extends BaseContract.BaseView<ModalSavePokemonBagContract.Presenter> {
         void displayErrorMessage();
-        void pageRegion();
+        void displaySaveMessage();
     }
 
     interface Presenter extends BaseContract.BasePresenter {
         List<Bag> getListBag();
-        void nextPage();
+        void savePokemon();
     }
 }
