@@ -1,4 +1,4 @@
-package com.alexa.mypokemonbag.activity;
+package com.alexa.mypokemonbag.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,11 +9,7 @@ import android.widget.AdapterView;
 
 import com.alexa.mypokemonbag.R;
 import com.alexa.mypokemonbag.adapter.PokemonAdapter;
-import com.alexa.mypokemonbag.adapter.RegionAdapter;
-import com.alexa.mypokemonbag.databinding.ActivityPokemonBinding;
-import com.alexa.mypokemonbag.databinding.ActivityRegionBinding;
 import com.alexa.mypokemonbag.model.Pokemon;
-import com.alexa.mypokemonbag.model.Region;
 import com.alexa.mypokemonbag.mvp.contract.PokemonContract;
 import com.alexa.mypokemonbag.mvp.presenter.PokemonPresenter;
 import com.alexa.mypokemonbag.util.Utils;

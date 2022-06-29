@@ -1,22 +1,16 @@
-package com.alexa.mypokemonbag.activity;
+package com.alexa.mypokemonbag.view;
 
 import android.os.Bundle;
 
 import com.alexa.mypokemonbag.mvp.contract.DetailPokemonContract;
 import com.alexa.mypokemonbag.mvp.presenter.DetailPokemonPresenter;
-import com.alexa.mypokemonbag.util.ModalSavePokemonBag;
 import com.alexa.mypokemonbag.util.Utils;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
-
-import com.alexa.mypokemonbag.databinding.ActivityDetailPokemonBinding;
 
 public class DetailPokemonActivity extends AppCompatActivity implements DetailPokemonContract.View {
 

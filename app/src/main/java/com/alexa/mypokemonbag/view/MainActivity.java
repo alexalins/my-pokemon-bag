@@ -1,4 +1,4 @@
-package com.alexa.mypokemonbag.activity;
+package com.alexa.mypokemonbag.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,13 +8,11 @@ import android.view.View;
 
 import com.alexa.mypokemonbag.R;
 import com.alexa.mypokemonbag.adapter.BagAdapter;
-import com.alexa.mypokemonbag.databinding.ActivityMainBinding;
 import com.alexa.mypokemonbag.model.Bag;
 import com.alexa.mypokemonbag.mvp.presenter.HomePresenter;
 import com.alexa.mypokemonbag.util.Utils;
 import com.alexa.mypokemonbag.mvp.contract.HomeContract;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements HomeContract.View {

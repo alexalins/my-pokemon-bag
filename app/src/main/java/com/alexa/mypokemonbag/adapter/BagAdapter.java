@@ -11,10 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.alexa.mypokemonbag.R;
-import com.alexa.mypokemonbag.activity.MainActivity;
 import com.alexa.mypokemonbag.model.Bag;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BagAdapter extends ArrayAdapter<Bag> {

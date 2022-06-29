@@ -10,21 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPokemonBag">
         <activity
-            android:name=".activity.DetailPokemonActivity"
+            android:name=".view.DetailPokemonActivity"
             android:exported="false"
             android:label="@string/title_activity_detail_pokemon"
-            android:parentActivityName=".activity.PokemonActivity"
+            android:parentActivityName=".view.PokemonActivity"
             android:theme="@style/Theme.MyPokemonBag.NoActionBar" />
         <activity
-            android:name=".activity.PokemonActivity"
+            android:name=".view.PokemonActivity"
             android:exported="false"
-            android:parentActivityName=".activity.RegionActivity" />
+            android:parentActivityName=".view.RegionActivity" />
         <activity
-            android:name=".activity.RegionActivity"
+            android:name=".view.RegionActivity"
             android:exported="false"
-            android:parentActivityName=".activity.MainActivity" />
+            android:parentActivityName=".view.MainActivity" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

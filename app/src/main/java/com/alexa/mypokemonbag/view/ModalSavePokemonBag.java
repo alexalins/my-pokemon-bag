@@ -1,4 +1,4 @@
-package com.alexa.mypokemonbag.util;
+package com.alexa.mypokemonbag.view;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -20,6 +20,7 @@ import com.alexa.mypokemonbag.adapter.BagAdapter;
 import com.alexa.mypokemonbag.model.Bag;
 import com.alexa.mypokemonbag.mvp.contract.ModalSavePokemonBagContract;
 import com.alexa.mypokemonbag.mvp.presenter.ModalSavePokemonBagPresenter;
+import com.alexa.mypokemonbag.util.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
