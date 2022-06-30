@@ -9,10 +9,11 @@ public interface RegionContract {
     interface View extends BaseContract.BaseView<RegionContract.Presenter> {
         void displayErrorMessage();
         void pageListPokemon();
+        void loadListPokemon(List<Region> list);
     }
 
     interface Presenter extends BaseContract.BasePresenter {
-        List<Region> getListPokemon();
+        void getListRegion();
         void nextPage();
     }
 }

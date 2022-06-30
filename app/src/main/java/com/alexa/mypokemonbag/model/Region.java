@@ -1,7 +1,11 @@
 package com.alexa.mypokemonbag.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Region {
+    @SerializedName(value = "name")
     private String name;
+    @SerializedName(value = "url")
     private String url;
 
     public Region() {

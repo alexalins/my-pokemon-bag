@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 
 import com.alexa.mypokemonbag.R;
 import com.alexa.mypokemonbag.adapter.PokemonAdapter;
+import com.alexa.mypokemonbag.databinding.ActivityPokemonBinding;
 import com.alexa.mypokemonbag.model.Pokemon;
 import com.alexa.mypokemonbag.mvp.contract.PokemonContract;
 import com.alexa.mypokemonbag.mvp.presenter.PokemonPresenter;

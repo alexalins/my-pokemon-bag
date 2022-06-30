@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.alexa.mypokemonbag.R;
 import com.alexa.mypokemonbag.adapter.BagAdapter;
+import com.alexa.mypokemonbag.databinding.ActivityMainBinding;
 import com.alexa.mypokemonbag.model.Bag;
 import com.alexa.mypokemonbag.mvp.presenter.HomePresenter;
 import com.alexa.mypokemonbag.util.Utils;

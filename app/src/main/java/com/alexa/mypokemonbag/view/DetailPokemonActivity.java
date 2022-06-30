@@ -2,6 +2,7 @@ package com.alexa.mypokemonbag.view;
 
 import android.os.Bundle;
 
+import com.alexa.mypokemonbag.databinding.ActivityDetailPokemonBinding;
 import com.alexa.mypokemonbag.mvp.contract.DetailPokemonContract;
 import com.alexa.mypokemonbag.mvp.presenter.DetailPokemonPresenter;
 import com.alexa.mypokemonbag.util.Utils;

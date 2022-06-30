@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 
 import com.alexa.mypokemonbag.R;
 import com.alexa.mypokemonbag.adapter.RegionAdapter;
+import com.alexa.mypokemonbag.databinding.ActivityRegionBinding;
 import com.alexa.mypokemonbag.model.Region;
 import com.alexa.mypokemonbag.mvp.presenter.RegionPresenter;
 import com.alexa.mypokemonbag.util.Utils;
@@ -39,15 +40,7 @@ public class RegionActivity extends AppCompatActivity implements RegionContract.
     public void bindViews() {
         binding = ActivityRegionBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        List<Region> list = presenter.getListPokemon();
-        RegionAdapter adapter = new RegionAdapter(this, list);
-        binding.gridRegion.setAdapter(adapter);
-        binding.gridRegion.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                presenter.nextPage();
-            }
-        });
+        presenter.getListRegion();
     }
 
     @Override
@@ -59,5 +52,17 @@ public class RegionActivity extends AppCompatActivity implements RegionContract.
     public void pageListPokemon() {
         Intent intent = new Intent(this, PokemonActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void loadListPokemon(List<Region> list) {
+        RegionAdapter adapter = new RegionAdapter(this, list);
+        binding.gridRegion.setAdapter(adapter);
+        binding.gridRegion.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                presenter.nextPage();
+            }
+        });
     }
 }
