@@ -40,7 +40,9 @@ public class PokemonAdapter extends ArrayAdapter<Pokemon> {
         String urlImage = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"+ Utils.validateNumber(pokemon.getId()) +".png";
         Glide.with(convertView).load(urlImage).into(imageView);
         TextView txtTitle = convertView.findViewById(R.id.pokemon_name);
+        TextView txiId = convertView.findViewById(R.id.pokemon_id);
         txtTitle.setText(pokemon.getName());
+        txiId.setText("#" + Utils.validateNumber(pokemon.getId()));
         return convertView;
     }
 }
