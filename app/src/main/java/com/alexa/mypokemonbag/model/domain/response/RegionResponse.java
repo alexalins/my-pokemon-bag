@@ -6,23 +6,16 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class RegionResponse {
-    public int count;
-    public Object next;
-    public Object previous;
-    @SerializedName("results")
-    public List<Region> results;
+    @SerializedName(value = "results")
+    private List<Region> results;
+    @SerializedName(value = "pokedexes")
+    private List<RegionPokedexResponse> pokedexes;
 
     public List<Region> getResults() {
         return results;
     }
 
-    @Override
-    public String toString() {
-        return "RegionRepository{" +
-                "count=" + count +
-                ", next=" + next +
-                ", previous=" + previous +
-                ", results=" + results +
-                '}';
+    public List<RegionPokedexResponse> getPokedexes() {
+        return pokedexes;
     }
 }

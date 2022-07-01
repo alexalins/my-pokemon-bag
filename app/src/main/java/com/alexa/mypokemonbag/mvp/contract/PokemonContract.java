@@ -9,10 +9,11 @@ public interface PokemonContract {
     interface View extends BaseContract.BaseView<PokemonContract.Presenter> {
         void displayErrorMessage();
         void pageDetailPokemon();
+        void loadDataPokemon(List<Pokemon> list);
     }
 
     interface Presenter extends BaseContract.BasePresenter {
-        List<Pokemon> getListPokemon();
+        void getListPokemon(String id);
         void nextPage();
     }
 }

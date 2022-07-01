@@ -12,4 +12,15 @@ public class Utils {
     public static String getBaseUrl() {
         return "https://pokeapi.co/api/v2/";
     }
+
+    public static String validateNumber(int id) {
+        String number = String.valueOf(id);
+        if(number.length() == 1) {
+            return "00"+ number;
+        }
+        if(number.length() == 2) {
+            return "0"+ number;
+        }
+        return number;
+    }
 }

@@ -1,6 +1,7 @@
 package com.alexa.mypokemonbag.mvp.presenter;
 
 import com.alexa.mypokemonbag.model.Region;
+import com.alexa.mypokemonbag.model.domain.response.RegionPokedexResponse;
 import com.alexa.mypokemonbag.model.domain.response.RegionResponse;
 import com.alexa.mypokemonbag.model.domain.service.RegionService;
 import com.alexa.mypokemonbag.mvp.contract.RegionContract;
@@ -18,7 +19,8 @@ public class RegionPresenter implements RegionContract.Presenter {
 
     private RegionContract.View view;
     private RegionService regionService;
-    private List<Region> list;
+    private List<Region> listRegion;
+    private List<RegionPokedexResponse> listPokedex;
 
     public RegionPresenter(RegionContract.View view) {
         this.view = view;
@@ -43,8 +45,8 @@ public class RegionPresenter implements RegionContract.Presenter {
             @Override
             public void onResponse(Call<RegionResponse> call, Response<RegionResponse> response) {
                 RegionResponse repository = response.body();
-                list = repository.getResults();
-                view.loadListPokemon(list);
+                listRegion = repository.getResults();
+                view.loadListPokemon(listRegion);
             }
 
             @Override
@@ -55,7 +57,26 @@ public class RegionPresenter implements RegionContract.Presenter {
     }
 
     @Override
-    public void nextPage() {
-        view.pageListPokemon();
+    public void nextPage(String url) {
+        String id = url.substring(33);
+        Call<RegionResponse> resquest = regionService.getRegion(id);
+        resquest.enqueue(new Callback<RegionResponse>() {
+            @Override
+            public void onResponse(Call<RegionResponse> call, Response<RegionResponse> response) {
+                try {
+                    RegionResponse repository = response.body();
+                    listPokedex = repository.getPokedexes();
+                    //pegando a primeira pq só precisa dela
+                    view.pageListPokemon(listPokedex.get(0).getUrl());
+                } catch (Exception e) {
+                    view.displayErrorMessage();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegionResponse> call, Throwable t) {
+                view.displayErrorMessage();
+            }
+        });
     }
 }

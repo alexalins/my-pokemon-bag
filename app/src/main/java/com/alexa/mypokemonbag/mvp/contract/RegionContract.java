@@ -8,12 +8,13 @@ import java.util.List;
 public interface RegionContract {
     interface View extends BaseContract.BaseView<RegionContract.Presenter> {
         void displayErrorMessage();
-        void pageListPokemon();
+        void displayErrorMessagePokedex();
+        void pageListPokemon(String url);
         void loadListPokemon(List<Region> list);
     }
 
     interface Presenter extends BaseContract.BasePresenter {
         void getListRegion();
-        void nextPage();
+        void nextPage(String url);
     }
 }

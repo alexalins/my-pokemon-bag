@@ -3,24 +3,25 @@ package com.alexa.mypokemonbag.model;
 import java.util.List;
 
 public class Pokemon {
-    private Long id;
+    private int id;
     private String name;
     private String image;
+    private String url;
 
     public Pokemon() {
     }
 
-    public Pokemon(Long id, String name, String image) {
+    public Pokemon(int id, String name, String url) {
         this.id = id;
         this.name = name;
-        this.image = image;
+        this.image = url;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -38,6 +39,14 @@ public class Pokemon {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override

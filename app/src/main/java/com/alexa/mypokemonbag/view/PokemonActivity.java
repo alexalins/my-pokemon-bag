@@ -40,15 +40,11 @@ public class PokemonActivity extends AppCompatActivity implements PokemonContrac
     public void bindViews() {
         binding = ActivityPokemonBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        List<Pokemon> list = presenter.getListPokemon();
-        PokemonAdapter adapter = new PokemonAdapter(this, list);
-        binding.gridPokemon.setAdapter(adapter);
-        binding.gridPokemon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                presenter.nextPage();
-            }
-        });
+        //
+        Bundle extras = getIntent().getExtras();
+        String url = extras.getString("url");
+        String id = url.substring(34);
+        presenter.getListPokemon(id);
     }
 
     @Override
@@ -60,5 +56,17 @@ public class PokemonActivity extends AppCompatActivity implements PokemonContrac
     public void pageDetailPokemon() {
         Intent intent = new Intent(this, DetailPokemonActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void loadDataPokemon(List<Pokemon> list) {
+        PokemonAdapter adapter = new PokemonAdapter(this, list);
+        binding.gridPokemon.setAdapter(adapter);
+        binding.gridPokemon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                presenter.nextPage();
+            }
+        });
     }
 }

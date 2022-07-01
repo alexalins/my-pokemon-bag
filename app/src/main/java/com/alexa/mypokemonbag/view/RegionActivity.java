@@ -21,6 +21,7 @@ public class RegionActivity extends AppCompatActivity implements RegionContract.
 
     private RegionContract.Presenter presenter;
     private ActivityRegionBinding binding;
+    private List<Region> listRegion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,19 +50,26 @@ public class RegionActivity extends AppCompatActivity implements RegionContract.
     }
 
     @Override
-    public void pageListPokemon() {
+    public void displayErrorMessagePokedex() {
+        Utils.toast(this, "Erro ao listar essa pokedex.");
+    }
+
+    @Override
+    public void pageListPokemon(String url) {
         Intent intent = new Intent(this, PokemonActivity.class);
+        intent.putExtra("url", url);
         startActivity(intent);
     }
 
     @Override
     public void loadListPokemon(List<Region> list) {
-        RegionAdapter adapter = new RegionAdapter(this, list);
+        this.listRegion = list;
+        RegionAdapter adapter = new RegionAdapter(this, this.listRegion);
         binding.gridRegion.setAdapter(adapter);
         binding.gridRegion.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                presenter.nextPage();
+                presenter.nextPage(listRegion.get(position).getUrl());
             }
         });
     }
