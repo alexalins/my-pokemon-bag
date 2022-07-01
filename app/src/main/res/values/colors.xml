@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="red">#F44336</color>
-    <color name="red_200">#F3695F</color>
+    <color name="red_200">#F1847C</color>
     <color name="red_500">#F8594E</color>
     <color name="red_700">#F83022</color>
     <color name="red_900">#970A00</color>

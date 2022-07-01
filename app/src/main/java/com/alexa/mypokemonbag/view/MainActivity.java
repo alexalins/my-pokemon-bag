@@ -1,14 +1,27 @@
 package com.alexa.mypokemonbag.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.alexa.mypokemonbag.R;
 import com.alexa.mypokemonbag.adapter.BagAdapter;
 import com.alexa.mypokemonbag.databinding.ActivityMainBinding;
+import com.alexa.mypokemonbag.databinding.ModalAddBagBinding;
+import com.alexa.mypokemonbag.databinding.ModalSavePokemonBagBinding;
 import com.alexa.mypokemonbag.model.Bag;
 import com.alexa.mypokemonbag.mvp.presenter.HomePresenter;
 import com.alexa.mypokemonbag.util.Utils;
@@ -29,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
         //
         presenter = new HomePresenter(this);
         presenter.start();
-
     }
 
     @Override
@@ -44,11 +56,17 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
         List<Bag> list = presenter.getListBag();
         adapter = new BagAdapter(this, list);
         binding.include.listview.setAdapter(adapter);
+        binding.include.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                presenter.nextPage();
+            }
+        });
 
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.nextPage();
+                presenter.dialiogSave();
             }
         });
     }
@@ -63,4 +81,25 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
         Intent intent = new Intent(this, RegionActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void createDialog() {
+        Dialog dialog = new Dialog(this, R.style.DialogStyle);
+        dialog.setContentView(R.layout.modal_add_bag);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        //
+        EditText editTextName = dialog.findViewById(R.id.editTextName);
+        EditText editTextDescription = dialog.findViewById(R.id.editTextDescription);
+        Button btn_save = dialog.findViewById(R.id.button);
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Utils.toast(getBaseContext(), "Salva com sucesso!");
+            }
+        });
+        //
+        dialog.show();
+    }
+
 }

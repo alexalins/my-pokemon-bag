@@ -36,4 +36,9 @@ public class HomePresenter implements HomeContract.Presenter {
     public void nextPage() {
         view.pageRegion();
     }
+
+    @Override
+    public void dialiogSave() {
+        view.createDialog();
+    }
 }

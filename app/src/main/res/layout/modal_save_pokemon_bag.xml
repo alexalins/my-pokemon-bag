@@ -17,12 +17,16 @@
 
     </ListView>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_save"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:text="Salvar"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_margin="16sp"
+        android:background="@drawable/rounded_coner_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

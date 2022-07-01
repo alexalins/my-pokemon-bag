@@ -10,10 +10,12 @@ public interface HomeContract {
     interface View extends BaseContract.BaseView<Presenter> {
         void displayErrorMessage();
         void pageRegion();
+        void createDialog();
     }
 
     interface Presenter extends BaseContract.BasePresenter {
         List<Bag> getListBag();
         void nextPage();
+        void dialiogSave();
     }
 }
