@@ -13,7 +13,7 @@ public class Utils {
         return "https://pokeapi.co/api/v2/";
     }
 
-    public static String validateNumber(int id) {
+    public static String validateNumber(String id) {
         String number = String.valueOf(id);
         if(number.length() == 1) {
             return "00"+ number;
@@ -21,6 +21,12 @@ public class Utils {
         if(number.length() == 2) {
             return "0"+ number;
         }
+        return number;
+    }
+
+    public static String getIdPokemon(String url) {
+        String number = url.substring(42);
+        number = number.replaceAll("[^0-9]", "");
         return number;
     }
 }

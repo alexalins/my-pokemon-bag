@@ -14,7 +14,7 @@ public class Pokemon {
     public Pokemon(int id, String name, String url) {
         this.id = id;
         this.name = name;
-        this.image = url;
+        this.url = url;
     }
 
     public int getId() {
@@ -54,7 +54,7 @@ public class Pokemon {
         return "Pokemon{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", image='" + image + '\'' +
+                ", url='" + url + '\'' +
                 '}';
     }
 }

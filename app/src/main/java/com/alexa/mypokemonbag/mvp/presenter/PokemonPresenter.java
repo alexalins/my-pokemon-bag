@@ -47,7 +47,6 @@ public class PokemonPresenter implements PokemonContract.Presenter {
             @Override
             public void onResponse(Call<PokedexResponse> call, Response<PokedexResponse> response) {
                 PokedexResponse repository = response.body();
-                System.out.println(repository.toString());
                 List<PokemonResponse> list = repository.getPokemonList();
                 listPokedex = new ArrayList<>();
                 for (PokemonResponse pokemon: list){

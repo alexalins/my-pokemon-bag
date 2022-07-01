@@ -36,13 +36,16 @@ public class PokemonAdapter extends ArrayAdapter<Pokemon> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_pokemon, parent, false);
         }
         //
-        ImageView imageView = convertView.findViewById(R.id.image_pokemon);
-        String urlImage = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"+ Utils.validateNumber(pokemon.getId()) +".png";
-        Glide.with(convertView).load(urlImage).into(imageView);
+        if(pokemon.getUrl() != null) {
+            ImageView imageView = convertView.findViewById(R.id.image_pokemon);
+            String id = Utils.validateNumber(Utils.getIdPokemon(pokemon.getUrl()));
+            String urlImage = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"+ id +".png";
+            Glide.with(convertView).load(urlImage).into(imageView);
+        }
         TextView txtTitle = convertView.findViewById(R.id.pokemon_name);
         TextView txiId = convertView.findViewById(R.id.pokemon_id);
         txtTitle.setText(pokemon.getName());
-        txiId.setText("#" + Utils.validateNumber(pokemon.getId()));
+        txiId.setText("#" + Utils.validateNumber(String.valueOf(pokemon.getId())));
         return convertView;
     }
 }
