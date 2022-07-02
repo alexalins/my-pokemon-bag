@@ -38,9 +38,7 @@ public class PokemonAdapter extends ArrayAdapter<Pokemon> {
         //
         if(pokemon.getUrl() != null) {
             ImageView imageView = convertView.findViewById(R.id.image_pokemon);
-            String id = Utils.validateNumber(Utils.getIdPokemon(pokemon.getUrl()));
-            String urlImage = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"+ id +".png";
-            Glide.with(convertView).load(urlImage).into(imageView);
+            Glide.with(convertView).load(Utils.getUrlImage(pokemon.getUrl())).into(imageView);
         }
         TextView txtTitle = convertView.findViewById(R.id.pokemon_name);
         TextView txiId = convertView.findViewById(R.id.pokemon_id);

@@ -1,6 +1,7 @@
 package com.alexa.mypokemonbag.mvp.contract;
 
 import com.alexa.mypokemonbag.model.Bag;
+import com.alexa.mypokemonbag.model.Pokemon;
 import com.alexa.mypokemonbag.mvp.BaseContract;
 
 public interface DetailBagContract {
@@ -8,7 +9,7 @@ public interface DetailBagContract {
     interface View extends BaseContract.BaseView<DetailBagContract.Presenter> {
         void displayErrorMessage();
         void pageAddPokemon();
-        void pageDetailPokemon();
+        void pageDetailPokemon(Pokemon pokemon);
         void loadDataBag(Bag bag);
         void createDialogEdit();
         void createDialogDelete();
@@ -19,6 +20,6 @@ public interface DetailBagContract {
         void savePokemon();
         void dialiogEdit();
         void dialiogDelete();
-        void detailPokemon();
+        void detailPokemon(Pokemon pokemon);
     }
 }

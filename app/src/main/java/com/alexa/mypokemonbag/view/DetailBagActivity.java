@@ -20,6 +20,7 @@ import com.alexa.mypokemonbag.model.Region;
 import com.alexa.mypokemonbag.mvp.contract.DetailBagContract;
 import com.alexa.mypokemonbag.mvp.presenter.DetailBagPresenter;
 import com.alexa.mypokemonbag.util.BagUtil;
+import com.alexa.mypokemonbag.util.PokemonUtil;
 import com.alexa.mypokemonbag.util.Utils;
 import com.google.gson.Gson;
 
@@ -53,7 +54,6 @@ public class DetailBagActivity extends AppCompatActivity implements DetailBagCon
         Bundle extras = getIntent().getExtras();
         String json = extras.getString(Utils.getBag());
         myBag = BagUtil.jsonToBag(json);
-        System.out.println(myBag.toString());
         //
         TextView title = binding.textTitle;
         TextView description = binding.textDescription;
@@ -81,8 +81,11 @@ public class DetailBagActivity extends AppCompatActivity implements DetailBagCon
     }
 
     @Override
-    public void pageDetailPokemon() {
+    public void pageDetailPokemon(Pokemon pokemon) {
         Intent intent = new Intent(this, DetailPokemonActivity.class);
+        String myJson = PokemonUtil.pokemonToJson(pokemon);
+        intent.putExtra(Utils.getPokemon(), myJson);
+        intent.putExtra(Utils.getEdit(), true);
         startActivity(intent);
     }
 
@@ -95,7 +98,7 @@ public class DetailBagActivity extends AppCompatActivity implements DetailBagCon
             binding.gridPokemonBag.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    presenter.detailPokemon();
+                    presenter.detailPokemon(listPokemon.get(position));
                 }
             });
         }

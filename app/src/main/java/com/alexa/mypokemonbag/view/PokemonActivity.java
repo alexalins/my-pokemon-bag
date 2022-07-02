@@ -13,6 +13,7 @@ import com.alexa.mypokemonbag.databinding.ActivityPokemonBinding;
 import com.alexa.mypokemonbag.model.Pokemon;
 import com.alexa.mypokemonbag.mvp.contract.PokemonContract;
 import com.alexa.mypokemonbag.mvp.presenter.PokemonPresenter;
+import com.alexa.mypokemonbag.util.PokemonUtil;
 import com.alexa.mypokemonbag.util.Utils;
 
 import java.util.List;
@@ -53,20 +54,21 @@ public class PokemonActivity extends AppCompatActivity implements PokemonContrac
     }
 
     @Override
-    public void pageDetailPokemon() {
+    public void pageDetailPokemon(Pokemon pokemon) {
         Intent intent = new Intent(this, DetailPokemonActivity.class);
+        String myJson = PokemonUtil.pokemonToJson(pokemon);
+        intent.putExtra(Utils.getPokemon(), myJson);
         startActivity(intent);
     }
 
     @Override
     public void loadDataPokemon(List<Pokemon> list) {
-        System.out.println(list);
         PokemonAdapter adapter = new PokemonAdapter(this, list);
         binding.gridPokemon.setAdapter(adapter);
         binding.gridPokemon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                presenter.nextPage();
+                presenter.nextPage(list.get(position));
             }
         });
     }

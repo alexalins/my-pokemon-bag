@@ -8,12 +8,12 @@ import java.util.List;
 public interface PokemonContract {
     interface View extends BaseContract.BaseView<PokemonContract.Presenter> {
         void displayErrorMessage();
-        void pageDetailPokemon();
+        void pageDetailPokemon(Pokemon pokemon);
         void loadDataPokemon(List<Pokemon> list);
     }
 
     interface Presenter extends BaseContract.BasePresenter {
         void getListPokemon(String id);
-        void nextPage();
+        void nextPage(Pokemon pokemon);
     }
 }

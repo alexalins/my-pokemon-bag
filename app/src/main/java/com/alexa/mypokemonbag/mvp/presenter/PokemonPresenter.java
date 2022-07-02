@@ -62,7 +62,7 @@ public class PokemonPresenter implements PokemonContract.Presenter {
     }
 
     @Override
-    public void nextPage() {
-        view.pageDetailPokemon();
+    public void nextPage(Pokemon pokemon) {
+        view.pageDetailPokemon(pokemon);
     }
 }

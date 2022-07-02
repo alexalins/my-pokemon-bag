@@ -18,6 +18,12 @@ public class Utils {
     public static String getBag() {
         return "BAG";
     }
+    public static String getPokemon() {
+        return "POKEMON";
+    }
+    public static String getEdit() {
+        return "EDIT";
+    }
 
     public static String validateNumber(String id) {
         String number = String.valueOf(id);
@@ -34,5 +40,11 @@ public class Utils {
         String number = url.substring(42);
         number = number.replaceAll("[^0-9]", "");
         return number;
+    }
+
+    public static String getUrlImage(String url) {
+        String id = Utils.validateNumber(Utils.getIdPokemon(url));
+        String urlImage = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"+ id +".png";
+        return urlImage;
     }
 }

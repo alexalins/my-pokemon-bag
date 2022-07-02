@@ -1,6 +1,7 @@
 package com.alexa.mypokemonbag.mvp.presenter;
 
 import com.alexa.mypokemonbag.model.Bag;
+import com.alexa.mypokemonbag.model.Pokemon;
 import com.alexa.mypokemonbag.mvp.contract.DetailBagContract;
 
 public class DetailBagPresenter implements DetailBagContract.Presenter {
@@ -28,8 +29,8 @@ public class DetailBagPresenter implements DetailBagContract.Presenter {
     }
 
     @Override
-    public void detailPokemon() {
-        view.pageDetailPokemon();
+    public void detailPokemon(Pokemon pokemon) {
+        view.pageDetailPokemon(pokemon);
     }
 
     @Override
