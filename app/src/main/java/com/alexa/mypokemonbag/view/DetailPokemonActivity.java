@@ -53,8 +53,13 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
     }
 
     @Override
-    public void pageBags() {
-        ModalSavePokemonBag modal = new ModalSavePokemonBag();
-        modal.show(getSupportFragmentManager(), "modalSavePokemonBag");
+    public void displaySuccessSaveMessage() {
+        Utils.toast(this, "Sucesso ao salvar Pokémon na bag");
+    }
+
+    @Override
+    public void displayErrorSaveMessage() {
+        Utils.toast(this, "Erro ao salvar Pokémon na bag.");
+
     }
 }

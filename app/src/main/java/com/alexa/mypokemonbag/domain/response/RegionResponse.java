@@ -1,4 +1,4 @@
-package com.alexa.mypokemonbag.model.domain.response;
+package com.alexa.mypokemonbag.domain.response;
 
 import com.alexa.mypokemonbag.model.Region;
 import com.google.gson.annotations.SerializedName;

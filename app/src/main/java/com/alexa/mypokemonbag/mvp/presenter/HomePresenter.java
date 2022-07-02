@@ -1,8 +1,8 @@
 package com.alexa.mypokemonbag.mvp.presenter;
 
 import com.alexa.mypokemonbag.model.Bag;
-import com.alexa.mypokemonbag.model.domain.service.BagService;
-import com.alexa.mypokemonbag.model.domain.impl.BagServiceImpl;
+import com.alexa.mypokemonbag.domain.service.BagService;
+import com.alexa.mypokemonbag.domain.impl.BagServiceImpl;
 import com.alexa.mypokemonbag.mvp.contract.HomeContract;
 
 import java.util.List;
@@ -33,8 +33,8 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
-    public void nextPage() {
-        view.pageRegion();
+    public void nextPage(Bag bag) {
+        view.pageDetailBag(bag);
     }
 
     @Override

@@ -57,7 +57,7 @@ public class RegionActivity extends AppCompatActivity implements RegionContract.
     @Override
     public void pageListPokemon(String url) {
         Intent intent = new Intent(this, PokemonActivity.class);
-        intent.putExtra("url", url);
+        intent.putExtra(Utils.getUrl(), url);
         startActivity(intent);
     }
 

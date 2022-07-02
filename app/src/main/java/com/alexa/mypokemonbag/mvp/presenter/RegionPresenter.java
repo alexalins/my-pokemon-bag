@@ -1,9 +1,9 @@
 package com.alexa.mypokemonbag.mvp.presenter;
 
 import com.alexa.mypokemonbag.model.Region;
-import com.alexa.mypokemonbag.model.domain.response.RegionPokedexResponse;
-import com.alexa.mypokemonbag.model.domain.response.RegionResponse;
-import com.alexa.mypokemonbag.model.domain.service.RegionService;
+import com.alexa.mypokemonbag.domain.response.RegionPokedexResponse;
+import com.alexa.mypokemonbag.domain.response.RegionResponse;
+import com.alexa.mypokemonbag.domain.service.RegionService;
 import com.alexa.mypokemonbag.mvp.contract.RegionContract;
 import com.alexa.mypokemonbag.util.Utils;
 

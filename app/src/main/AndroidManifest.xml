@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPokemonBag.NoActionBar">
         <activity
+            android:name=".view.DetailBagActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.DetailPokemonActivity"
             android:exported="false"
             android:label="@string/title_activity_detail_pokemon"

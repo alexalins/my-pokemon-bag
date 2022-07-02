@@ -24,8 +24,10 @@ import com.alexa.mypokemonbag.databinding.ModalAddBagBinding;
 import com.alexa.mypokemonbag.databinding.ModalSavePokemonBagBinding;
 import com.alexa.mypokemonbag.model.Bag;
 import com.alexa.mypokemonbag.mvp.presenter.HomePresenter;
+import com.alexa.mypokemonbag.util.BagUtil;
 import com.alexa.mypokemonbag.util.Utils;
 import com.alexa.mypokemonbag.mvp.contract.HomeContract;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
         binding.include.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                presenter.nextPage();
+                presenter.nextPage(list.get(position));
             }
         });
 
@@ -77,8 +79,10 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
     }
 
     @Override
-    public void pageRegion() {
-        Intent intent = new Intent(this, RegionActivity.class);
+    public void pageDetailBag(Bag bag) {
+        Intent intent = new Intent(this, DetailBagActivity.class);
+        String json = BagUtil.bagToJson(bag);
+        intent.putExtra(Utils.getBag(), json);
         startActivity(intent);
     }
 

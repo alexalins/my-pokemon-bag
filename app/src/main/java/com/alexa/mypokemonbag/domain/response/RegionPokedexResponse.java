@@ -1,8 +1,8 @@
-package com.alexa.mypokemonbag.model.domain.response;
+package com.alexa.mypokemonbag.domain.response;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SpecieResponse {
+public class RegionPokedexResponse {
     @SerializedName(value = "name")
     private String name;
     @SerializedName(value = "url")

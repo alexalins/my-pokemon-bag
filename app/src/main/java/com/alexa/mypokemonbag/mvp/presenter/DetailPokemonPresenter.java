@@ -24,6 +24,6 @@ public class DetailPokemonPresenter implements DetailPokemonContract.Presenter {
 
     @Override
     public void savePokemon() {
-        view.pageBags();
+        view.displaySuccessSaveMessage();
     }
 }

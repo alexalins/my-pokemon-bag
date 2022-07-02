@@ -1,8 +1,8 @@
 package com.alexa.mypokemonbag.mvp.presenter;
 
 import com.alexa.mypokemonbag.model.Bag;
-import com.alexa.mypokemonbag.model.domain.impl.BagServiceImpl;
-import com.alexa.mypokemonbag.model.domain.service.BagService;
+import com.alexa.mypokemonbag.domain.impl.BagServiceImpl;
+import com.alexa.mypokemonbag.domain.service.BagService;
 import com.alexa.mypokemonbag.mvp.contract.ModalSavePokemonBagContract;
 
 import java.util.List;

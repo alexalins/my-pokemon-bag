@@ -1,6 +1,6 @@
-package com.alexa.mypokemonbag.model.domain.service;
+package com.alexa.mypokemonbag.domain.service;
 
-import com.alexa.mypokemonbag.model.domain.response.RegionResponse;
+import com.alexa.mypokemonbag.domain.response.RegionResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

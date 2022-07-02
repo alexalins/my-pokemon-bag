@@ -42,7 +42,7 @@ public class PokemonActivity extends AppCompatActivity implements PokemonContrac
         setContentView(binding.getRoot());
         //
         Bundle extras = getIntent().getExtras();
-        String url = extras.getString("url");
+        String url = extras.getString(Utils.getUrl());
         String id = url.substring(34);
         presenter.getListPokemon(id);
     }
@@ -60,6 +60,7 @@ public class PokemonActivity extends AppCompatActivity implements PokemonContrac
 
     @Override
     public void loadDataPokemon(List<Pokemon> list) {
+        System.out.println(list);
         PokemonAdapter adapter = new PokemonAdapter(this, list);
         binding.gridPokemon.setAdapter(adapter);
         binding.gridPokemon.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -1,4 +1,4 @@
-package com.alexa.mypokemonbag.model.domain.service;
+package com.alexa.mypokemonbag.domain.service;
 
 import com.alexa.mypokemonbag.model.Bag;
 

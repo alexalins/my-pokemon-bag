@@ -7,7 +7,8 @@ public interface DetailPokemonContract {
 
     interface View extends BaseContract.BaseView<DetailPokemonContract.Presenter> {
         void displayErrorMessage();
-        void pageBags();
+        void displaySuccessSaveMessage();
+        void displayErrorSaveMessage();
     }
 
     interface Presenter extends BaseContract.BasePresenter {

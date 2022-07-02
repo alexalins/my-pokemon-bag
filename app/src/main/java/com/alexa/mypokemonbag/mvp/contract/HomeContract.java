@@ -9,13 +9,13 @@ public interface HomeContract {
 
     interface View extends BaseContract.BaseView<Presenter> {
         void displayErrorMessage();
-        void pageRegion();
+        void pageDetailBag(Bag bag);
         void createDialog();
     }
 
     interface Presenter extends BaseContract.BasePresenter {
         List<Bag> getListBag();
-        void nextPage();
+        void nextPage(Bag bag);
         void dialiogSave();
     }
 }
