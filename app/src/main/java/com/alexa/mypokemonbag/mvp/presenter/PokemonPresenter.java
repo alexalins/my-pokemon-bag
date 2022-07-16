@@ -25,7 +25,6 @@ public class PokemonPresenter implements PokemonContract.Presenter {
         this.view = view;
         view.setPresenter(this);
         //
-        //
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Utils.getBaseUrl())
                 .addConverterFactory(GsonConverterFactory.create())

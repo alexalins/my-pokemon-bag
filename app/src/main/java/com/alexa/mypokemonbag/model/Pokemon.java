@@ -3,10 +3,15 @@ package com.alexa.mypokemonbag.model;
 import java.util.List;
 
 public class Pokemon {
+
     private int id;
     private String name;
     private String image;
     private String url;
+    private int height;
+    private int weight;
+    private List<Type> types;
+    private List<Stat> stats;
 
     public Pokemon() {
     }
@@ -47,6 +52,38 @@ public class Pokemon {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public List<Type> getTypes() {
+        return types;
+    }
+
+    public void setTypes(List<Type> types) {
+        this.types = types;
+    }
+
+    public List<Stat> getStats() {
+        return stats;
+    }
+
+    public void setStats(List<Stat> stats) {
+        this.stats = stats;
     }
 
     @Override

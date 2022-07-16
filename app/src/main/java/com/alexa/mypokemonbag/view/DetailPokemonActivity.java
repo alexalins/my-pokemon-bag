@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.alexa.mypokemonbag.R;
 import com.alexa.mypokemonbag.databinding.ActivityDetailPokemonBinding;
 import com.alexa.mypokemonbag.model.Pokemon;
+import com.alexa.mypokemonbag.model.Type;
 import com.alexa.mypokemonbag.mvp.contract.DetailPokemonContract;
 import com.alexa.mypokemonbag.mvp.presenter.DetailPokemonPresenter;
 import com.alexa.mypokemonbag.util.PokemonUtil;
@@ -46,6 +47,7 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
         String json = extras.getString(Utils.getPokemon());
         boolean isEdit = extras.getBoolean(Utils.getEdit());
         myPokemon = PokemonUtil.jsonToPokemon(json);
+        presenter.getPokemon(myPokemon);
         //
         CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
         toolBarLayout.setTitle(myPokemon.getName());
@@ -77,5 +79,31 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
     public void displayErrorSaveMessage() {
         Utils.toast(this, "Erro ao salvar Pokémon na bag.");
 
+    }
+
+    @Override
+    public void loadDataPokemon(Pokemon pokemon) {
+        binding.include.textType.setText(stringTypes(pokemon));
+        binding.include.textHeight.setText("Altura: " +String.valueOf(pokemon.getHeight()));
+        binding.include.textWeight.setText("Peso: " + String.valueOf(pokemon.getWeight()));
+        binding.include.progressHp.setProgress(pokemon.getStats().get(0).getValue());
+        binding.include.progressAttack.setProgress(pokemon.getStats().get(1).getValue());
+        binding.include.progressDefense.setProgress(pokemon.getStats().get(2).getValue());
+        binding.include.progressSpecialAttack.setProgress(pokemon.getStats().get(3).getValue());
+        binding.include.progressSpecialDefense.setProgress(pokemon.getStats().get(4).getValue());
+        binding.include.progressSpeed.setProgress(pokemon.getStats().get(5).getValue());
+    }
+
+    private String stringTypes(Pokemon pokemon) {
+        String stringtypes = "Tipo: ";
+        for(Type type : pokemon.getTypes()) {
+            if(stringtypes == "Tipo: ") {
+                stringtypes =  stringtypes + type.getName();
+            } else {
+                stringtypes = stringtypes + ", "+ type.getName();
+            }
+        }
+
+        return stringtypes;
     }
 }
